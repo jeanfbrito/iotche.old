@@ -1,0 +1,27 @@
+<%= form_with(model: [@device, @reading]) do |form| %>
+  <% if reading.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reading.errors.count, "error") %> prohibited this reading from being saved:</h2>
+
+      <ul>
+      <% reading.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :datetime %>
+    <%= form.datetime_select :datetime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.text_field :data %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

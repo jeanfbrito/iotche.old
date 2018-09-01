@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device uid:</strong>
+  <%= @reading.device_uid %>
+</p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @reading.datetime %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @reading.data %>
+</p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @reading.device %>
+</p>
+
+<%= link_to 'Edit', edit_reading_path(@reading) %> |
+<%= link_to 'Back', device_readings_path %>

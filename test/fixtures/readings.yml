@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_uid: MyString
+  datetime: 2018-09-01 18:33:46
+  data: 
+  device: one
+
+two:
+  device_uid: MyString
+  datetime: 2018-09-01 18:33:46
+  data: 
+  device: two
