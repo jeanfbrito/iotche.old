@@ -1,6 +1,7 @@
 class ReadingsController < ApplicationController
   before_action :set_reading, only: [:show, :edit, :update, :destroy]
-  before_action :set_device
+  before_action :set_device, except: :insert
+  skip_before_action :verify_authenticity_token, :only => [:insert]
 
   # GET /readings
   def index
@@ -18,6 +19,19 @@ class ReadingsController < ApplicationController
 
   # GET /readings/1/edit
   def edit
+  end
+
+  def insert
+    @device = Device.where(write_key: params[:write_key]).first
+    new_reading = @device.readings.new
+    new_reading.data = JSON.parse(request.raw_post())
+    new_reading.datetime = Time.at(new_reading.data['timestamp']) if new_reading.data['timestamp']
+    new_reading.device_uid = new_reading.data['uid'] if new_reading.data['uid']
+    if new_reading.save
+      render json: {}, status: 200
+    else
+      render json: {}, status: 400
+    end
   end
 
   # POST /readings
@@ -43,7 +57,7 @@ class ReadingsController < ApplicationController
   # DELETE /readings/1
   def destroy
     @reading.destroy
-    redirect_to readings_url, notice: 'Reading was successfully destroyed.'
+    redirect_to device_readings_path, notice: 'Reading was successfully destroyed.'
   end
 
   private

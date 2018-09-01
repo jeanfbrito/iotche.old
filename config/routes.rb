@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/insert/:write_key' => 'readings#insert'
   resources :devices do
     resources :readings
   end
