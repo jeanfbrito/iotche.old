@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Feeds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Grouping type</th>
+      <th>Grouping interval</th>
+      <th>Metric type</th>
+      <th>Name</th>
+      <th>Grouping field</th>
+      <th>Metric field</th>
+      <th>Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td><%= feed.device %></td>
+        <td><%= feed.grouping_type %></td>
+        <td><%= feed.grouping_interval %></td>
+        <td><%= feed.metric_type %></td>
+        <td><%= feed.name %></td>
+        <td><%= feed.grouping_field %></td>
+        <td><%= feed.metric_field %></td>
+        <td><%= feed.order %></td>
+        <td><%= link_to 'Show', feed %></td>
+        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
+        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feed', new_feed_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @feed.device %>
+</p>
+
+<p>
+  <strong>Grouping type:</strong>
+  <%= @feed.grouping_type %>
+</p>
+
+<p>
+  <strong>Grouping interval:</strong>
+  <%= @feed.grouping_interval %>
+</p>
+
+<p>
+  <strong>Metric type:</strong>
+  <%= @feed.metric_type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @feed.name %>
+</p>
+
+<p>
+  <strong>Grouping field:</strong>
+  <%= @feed.grouping_field %>
+</p>
+
+<p>
+  <strong>Metric field:</strong>
+  <%= @feed.metric_field %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @feed.order %>
+</p>
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>

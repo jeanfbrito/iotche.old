@@ -1,0 +1,57 @@
+<%= form_with(model: feed, local: true) do |form| %>
+  <% if feed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+
+      <ul>
+      <% feed.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :device_id %>
+    <%= form.text_field :device_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grouping_type %>
+    <%= form.text_field :grouping_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grouping_interval %>
+    <%= form.text_field :grouping_interval %>
+  </div>
+
+  <div class="field">
+    <%= form.label :metric_type %>
+    <%= form.text_field :metric_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grouping_field %>
+    <%= form.text_field :grouping_field %>
+  </div>
+
+  <div class="field">
+    <%= form.label :metric_field %>
+    <%= form.text_field :metric_field %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order %>
+    <%= form.text_field :order %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

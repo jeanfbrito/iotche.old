@@ -1,5 +1,6 @@
 class Device < ApplicationRecord
   has_many :readings
+  has_many :feeds
   validates_uniqueness_of(:write_key)
   validates_uniqueness_of(:read_key)
 
