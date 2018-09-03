@@ -21,4 +21,11 @@
 
 class Reading < ApplicationRecord
   belongs_to :device
+  scope :this_month, -> { where("date_trunc('month',created_at) = date_trunc('month',now())") }
+  scope :last_two_months, -> { 
+    where("date_trunc('month', created_at) 
+    BETWEEN date_trunc('month', now()) - INTERVAL '2 MONTH' 
+    AND date_trunc('month', now())") 
+    }
+    scope :last_hour, -> { where("date_trunc('hour',created_at) = date_trunc('hour',$)", Time.zone.now) }
 end

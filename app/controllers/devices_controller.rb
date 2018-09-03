@@ -22,7 +22,7 @@ class DevicesController < ApplicationController
   # POST /devices
   def create
     @device = Device.new(device_params)
-
+    @device.generate_write_key
     if @device.save
       redirect_to @device, notice: 'Device was successfully created.'
     else

@@ -22,7 +22,6 @@ class Device < ApplicationRecord
       random_key = SecureRandom.base58(16) #16 digits
       break random_key unless Device.exists?(write_key: random_key)
     end
-    self.save
   end
 
   def generate_read_key
@@ -30,6 +29,5 @@ class Device < ApplicationRecord
       random_key = SecureRandom.base58(16) #16 digits
       break random_key unless Device.exists?(read_key: random_key)
     end
-    self.save
   end
 end

@@ -27,5 +27,6 @@ class Feed < ApplicationRecord
   belongs_to :device
   extend Enumerize
 
-  enumerize :sex, in: [:male, :female]
+  enumerize :grouping_type, in: [:minute, :hour, :day, :month], default: :minute
+  enumerize :metric_type, in: [:min, :max, :count, :average, :sum, :first, :last]
 end
