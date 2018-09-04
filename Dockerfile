@@ -5,7 +5,7 @@
 FROM ruby:2.5.1-stretch
 
 # Install Rails dependencies for the OS
-RUN apt-get update && apt-get install -y libc-ares2 libv8-3.14.5 postgresql-client --no-install-recommends && curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -y nodejs && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libc-ares2 libv8-3.14.5 postgresql-client graphviz --no-install-recommends && curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -y nodejs && rm -rf /var/lib/apt/lists/*
 
 # Set the work directory inside container
 RUN mkdir /app
